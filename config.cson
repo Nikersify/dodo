@@ -1,0 +1,7 @@
+dev: true
+server:
+	port: 6969
+redis:
+	db: 0
+gulp:
+	image_optimization_level: 0

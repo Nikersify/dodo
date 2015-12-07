@@ -1,11 +1,13 @@
 express = require 'express'
+cson = require 'cson'
 
 app = express()
 
+config = require './utils/config'
+
 app.set 'view engine', 'jade'
+app.use express.static('public')
+app.use require './controllers'
 
-app.get '/', (req, res) ->
-	res.render('index', {title: 'works', message: 'lol'})
-
-app.listen 6969, ->
-	console.log 'listening on port %s', 6969
+app.listen config.server.port, ->
+	console.log 'listening on port %s', config.server.port
