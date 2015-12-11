@@ -5,6 +5,7 @@ var concat = require('gulp-concat')
 var del = require('del')
 var gulp = require('gulp')
 var imagemin = require('gulp-imagemin');
+var liveReload = require('gulp-livereload')
 var plumber = require('gulp-plumber')
 var rename = require('gulp-rename')
 var sass = require('gulp-sass')
@@ -18,7 +19,7 @@ var srcPaths = {
 	coffee: './src/coffee/*',
 	coffeeEntry: './src/coffee/dodo.coffee',
 	fonts: [
-		'node_modules/materialize-css/font/**/*'
+		'node_modules/materialize-css/font/!(material-design-icons)/**/*'
 	],
 	images: 'src/img/**/*',
 	libs: [ // loaded before bundle.js
@@ -26,13 +27,15 @@ var srcPaths = {
 		'node_modules/materialize-css/dist/js/materialize.js'
 	],
 	sass: 'src/sass/**/*',
+	views: 'views/**/*'
 }
 
 var destPaths = {
 	css: 'public/css',
-	js: './public/js',
+	js: './public/js/bundle.js',
+	jsDir: './public/js/',
 	images: 'public/img',
-	libs: 'public/js',
+	libs: 'public/js/',
 	fonts: 'public/font'
 }
 
@@ -67,10 +70,15 @@ gulp.task('bundle', ['bundle:clean', 'sass'], function() {
 
 	return b.bundle()
 		.pipe(plumber())
+		.on('error', function(err) {
+			console.log(err.message)
+			this.emit('end')
+		})
 		.pipe(source('bundle.js'))
 		.pipe(buffer())
 		//.pipe(uglify())
-		.pipe(gulp.dest(destPaths.js))
+		.pipe(gulp.dest(destPaths.jsDir))
+		.pipe(liveReload())
 })
 
 gulp.task('bundle:clean', function() {
@@ -83,9 +91,10 @@ gulp.task('bundle:clean', function() {
 gulp.task('sass', ['sass:clean'], function() {
 	return gulp.src('./src/sass/styles.sass')
 		.pipe(plumber())
-		.pipe(sass())
+		.pipe(sass().on('error', sass.logError))
 		.pipe(rename('bundle.css'))
 		.pipe(gulp.dest(destPaths.css))
+		.pipe(liveReload())
 })
 
 gulp.task('sass:clean', function() {
@@ -117,13 +126,22 @@ gulp.task('fonts:clean', function() {
 	return del(destPaths.fonts)
 })
 
+
+// listening for changes in /views
+gulp.task('views', function() {
+	return gulp.src(srcPaths.views)
+		.pipe(liveReload())
+})
+
 // watch
 
 gulp.task('watch', function() {
+	liveReload.listen()
 	gulp.watch(srcPaths.images, ['images'])
 	//gulp.watch(srcPaths.coffee, ['coffee'])
 	gulp.watch([srcPaths.coffee], ['bundle'])
 	gulp.watch(srcPaths.sass, ['sass'])
+	gulp.watch(srcPaths.views, ['views'])
 })
 
 gulp.task('default', ['watch', 'bundle', 'libs', 'sass', 'images', 'fonts'])
