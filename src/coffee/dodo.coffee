@@ -1,7 +1,3 @@
-window.$ = require 'jquery'
-
-$('<button/>').text('hi').appendTo('body')
-
-window.test = 'hi'
+$(".button-collapse").sideNav();
 
 require './test.coffee'

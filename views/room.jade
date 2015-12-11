@@ -1,6 +1,19 @@
 html
 	head
-		title!= title
-		script(src='/js/bundle.js')
+		title #{title} - dodo
+		link(rel="stylesheet", href="/css/bundle.css")
 	body
-		h2!= message
+		nav
+			.nav-wrapper.container
+				a.brand-logo(href='/') Dodo
+				ul#nav-mobile.right.hide-on-med-and-down
+					li
+						a(href='#') Button
+					li
+						a(href='#') Materialize
+					li
+						a(href='#') #{title}
+
+		script(src='/js/libs.js')
+		script(src='/js/bundle.js')
+		//- script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js")

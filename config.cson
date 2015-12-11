@@ -2,6 +2,10 @@ dev: true
 server:
 	port: 6969
 redis:
+	host: '127.0.0.1'
+	port: 6379
+	options:
+		auth: null
 	db: 0
 gulp:
 	image_optimization_level: 0
