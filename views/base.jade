@@ -1,0 +1,47 @@
+html
+	head
+		title #{title} - dodo
+		link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
+		link(rel="stylesheet", href="/css/bundle.css")
+	body
+		nav.blue.darken-1
+			.nav-wrapper.container
+				a.brand-logo(href='/') 
+					| Dodo
+					small Alpha
+				ul#nav-mobile.right.hide-on-med-and-down
+					li
+						a(href='#') Button
+					li
+						a(href='#') Materialize
+					li
+						a(href='#') #{title}
+		
+		.container
+			block content
+
+
+		footer.page-footer.blue.darken-2
+			.container
+				.row
+					.col.l6.s12
+						h5.white-text Dodo
+						p.grey-text.text-lighten-4 I have no idea what I'm doing but it sure does look nice!
+					//-.col.l4.offset-l2.s12
+						h5.white-text Links
+						ul
+							li
+								a.grey-text.text-lighten-3(href='#!') Link 1
+							li
+								a.grey-text.text-lighten-3(href='#!') Link 2
+							li
+								a.grey-text.text-lighten-3(href='#!') Link 3
+							li
+								a.grey-text.text-lighten-3(href='#!') Link 4
+			.footer-copyright
+				.container
+					| no coperino, Nikersify 2015
+					a.grey-text.text-lighten-4.right(href='http://thecatapi.com/api/images/get?format=src&type=gif') random cats
+
+		script(src='/js/libs.js')
+		script(src='/js/bundle.js')

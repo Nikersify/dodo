@@ -1,19 +1,127 @@
-html
-	head
-		title #{title} - dodo
-		link(rel="stylesheet", href="/css/bundle.css")
-	body
-		nav
-			.nav-wrapper.container
-				a.brand-logo(href='/') Dodo
-				ul#nav-mobile.right.hide-on-med-and-down
-					li
-						a(href='#') Button
-					li
-						a(href='#') Materialize
-					li
-						a(href='#') #{title}
+extends base.jade
 
-		script(src='/js/libs.js')
-		script(src='/js/bundle.js')
-		//- script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js")
+block content
+	#app
+
+		.row
+			.col.l5.s12
+				//- pick character
+				.hero-picker-rows
+					.hero-picker-row
+						.header Safe Lane Carry
+						.username Nikersify
+						.pickers
+							.hero-picker.picker-primary
+								.hero-image
+									img.primary(src='/img/abaddon.png')
+									span Abaddon
+								//.username /nikersify
+							.hero-picker.picker-secondary
+								.hero-image
+									img.secondary(src='/img/abaddon.png')
+									span Abaddon
+							.hero-picker.picker-tertiary
+								.hero-image
+									img.tertiary(src='/img/abaddon.png')
+									span Abaddon
+
+					.hero-picker-row
+						.header Safe Lane Carry
+						.username Nikersify
+						.pickers
+							.hero-picker.picker-primary
+								.hero-image
+									img.primary(src='/img/abaddon.png')
+									span Abaddon
+								//.username /nikersify
+							.hero-picker.picker-secondary
+								.hero-image
+									img.secondary(src='/img/abaddon.png')
+									span Abaddon
+							.hero-picker.picker-tertiary
+								.hero-image
+									img.tertiary(src='/img/abaddon.png')
+									span Abaddon
+
+					.hero-picker-row
+						.header Safe Lane Carry
+						.username Nikersify
+						.pickers
+							.hero-picker.picker-primary
+								.hero-image
+									img.primary(src='/img/abaddon.png')
+									span Abaddon
+								//.username /nikersify
+							.hero-picker.picker-secondary
+								.hero-image
+									img.secondary(src='/img/abaddon.png')
+									span Abaddon
+							.hero-picker.picker-tertiary
+								.hero-image
+									img.tertiary(src='/img/abaddon.png')
+									span Abaddon
+
+					.hero-picker-row
+						.header Safe Lane Carry
+						.username Nikersify
+						.pickers
+							.hero-picker.picker-primary
+								.hero-image
+									img.primary(src='/img/abaddon.png')
+									span Abaddon
+								//.username /nikersify
+							.hero-picker.picker-secondary
+								.hero-image
+									img.secondary(src='/img/abaddon.png')
+									span Abaddon
+							.hero-picker.picker-tertiary
+								.hero-image
+									img.tertiary(src='/img/abaddon.png')
+									span Abaddon
+
+					.hero-picker-row
+						.header Safe Lane Carry
+						.username Nikersify
+						.pickers
+							.hero-picker.picker-primary
+								.hero-image
+									img.primary(src='/img/abaddon.png')
+									span Abaddon
+								//.username /nikersify
+							.hero-picker.picker-secondary
+								.hero-image
+									img.secondary(src='/img/abaddon.png')
+									span Abaddon
+							.hero-picker.picker-tertiary
+								.hero-image
+									img.tertiary(src='/img/abaddon.png')
+									span Abaddon
+
+
+
+			.col.l4.s12
+				.notes
+					.header Notes
+					#notes(contenteditable='true')
+						| Goddamit, I forgot to save my last notes so now I have to fill this space with just AGAIN. How do I type many words I have no idea, this sentence doesn't make any sense what-so-ever or however you spell that previous word that I just typed. I'm so bad at english and being creative, it's insane. Just look at this whole website, no originality at all, basic font everywhere, if you got this far send an email to fuckyou@andgofuckyourse.lf to receive a free cookie that might be filled with cyanide and dangerous poisonous ninja-gorilla venom but it's free so hey, just do it trademarked.
+						
+			.col.l3.s12
+				.chat
+					.header Chat
+					.chat-container
+						.messages
+							.message-line
+								.author Valom
+								.message nice strat dude
+							.message-line
+								.author Niker
+								.message thanks, but i don't play dota
+							.message-line
+								.author Valom
+								.message doesn't matter, you're shit
+							.message-line
+								.author Niker
+								.message What the fuck did you just fucking say about me, you little bitch? I’ll have you know I graduated top of my class in the Navy Seals, and I’ve been involved in numerous secret raids on Al-Quaeda, and I have over 300 confirmed kills. I am trained in gorilla warfare and I’m the top sniper in the entire US armed forces. You are nothing to me but just another target. You’re fucking dead, kiddo.
+						.chat-input
+							input(placeholder='Send message...')
+		

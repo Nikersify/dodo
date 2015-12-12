@@ -1,0 +1,126 @@
+// 256 144
+
+$team-colours: #3F81F3, #86FFD8, #B70EBE, #FFFF38, #FF7B25
+
+.brand-logo
+	font-weight: 200
+
+	small
+		font-size: 16px
+
+	transition: 0.1s ease-in
+
+	&:hover
+		@include transform(scale(1.05))
+
+.hero-picker-row
+	
+	@each $colour in $team-colours
+		$i: index($team-colours, $colour)
+		&:nth-child(#{$i})
+			box-shadow: 0px 0px 5px $colour
+
+	position: relative
+	margin-top: 10px
+
+	.header
+		font-size: 1em
+		line-height: 1.5em
+		font-weight: 500
+		margin-left: 5px
+
+	.username
+		+user-select(none)
+		position: absolute
+		right: 0
+		top: 0
+		padding: 10px
+		line-height: 1em
+		font-size: 35px
+		opacity: 0.5
+		font-weight: 300
+
+	.pickers
+		display: flex
+		align-items: flex-end
+
+		.hero-picker
+			margin: 5px
+
+		.picker-primary
+			flex: 5
+
+		.picker-secondary
+			flex: 4
+
+		.picker-tertiary
+			flex: 3
+
+
+
+	.hero-image
+		position: relative
+
+		img
+			@extend .z-depth-2
+			position: relative
+			display: block
+
+			z-index: 1
+			width: 100%
+			height: auto
+
+		span
+			+user-select(none)
+			position: absolute
+			color: white
+			font-weight: 300
+			left: 0
+			bottom: 0
+			padding: 10px
+			padding-bottom: 8px
+			z-index: 2
+
+.notes
+	.header
+		font-size: 50px
+		text-align: center
+
+	#notes
+		text-align: justify
+		min-height: 150px
+		outline: none
+		border: none
+		resize: none
+		font-size: 20px
+		max-height: 75%
+		overflow: auto
+
+.chat
+
+	.header
+		font-size: 50px
+		text-align: center
+		
+	.chat-container
+		box-shadow: 0px 0px 5px black
+		
+		.messages
+
+			padding: 10px
+			height: 50%
+			overflow-y: auto
+			text-align: justify
+
+			.message-line
+
+				.author
+					display: inline
+					font-weight: 700
+				.message
+					display: inline
+					width: 100%
+					padding: 10px
+		input
+			width: 100%
+			outline: none

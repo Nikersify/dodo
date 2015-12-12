@@ -1,3 +1,3 @@
-$(".button-collapse").sideNav();
+# hi
 
-require './test.coffee'
+require './main.coffee'
